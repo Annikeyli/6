@@ -1,10 +1,9 @@
-﻿#include <iostream> 
+#include <iostream>
 using namespace std;
 #include <string.h> 
 #include "Znak.h"
 template <class T>
 class MyList {
-
     class Node {
     public:
         T info;
@@ -12,28 +11,28 @@ class MyList {
         Node(T info, Node* next) :info(info), next(next) {};
         Node(T info) :info(info), next(nullptr) {};
         Node() {};
-        
+
     };
     Node* head = nullptr;
     Node* tail = nullptr;
 public:
-    void addBegin( T a);
+    void addBegin(T a);
     void addEnd(T a);
     void deleteList();
     Node* listCopy(Node* head, Node*& tailCopy);
     int insertList(Node* head, int x);
     bool digitIntNode(Node* head, T a);
     bool IsEmpty();
-    void deleteEl( T a);
+    void deleteEl(T a);
     friend ostream& operator<<(ostream& os, MyList<T>& l) {
-        for (Node* t =l. head; t != nullptr; t = t->next)os << t->info << " \n";
+        for (Node* t = l.head; t != nullptr; t = t->next)os << t->info << " \n";
         return os;
     }
-    bool operator==(Node* head, T a) {
+    /*bool operator==(Node* head, T a) {
         Node* h
-        return h->info == a;
-    }
-    
+            return h->info == a;
+    }*/
+
 };
 
 
@@ -59,7 +58,7 @@ void MyList<T>::deleteList() {
     if (head != nullptr) {
         Node* t = head;
         while (t) {
-            Node * g = t;
+            Node* g = t;
             t = t->next;
             t = nullptr;
             delete g;
@@ -80,7 +79,7 @@ inline bool MyList<T>::digitIntNode(Node* head, T x)
 template<class T>
 inline bool MyList<T>::IsEmpty()
 {
-    return head==nullptr;
+    return head == nullptr;
 }
 
 template<class T>
@@ -91,7 +90,7 @@ inline void MyList<T>::deleteEl(T a)
         while (t) {
             Node* g = t;
             t = t->next;
-            if t == a{
+            if (t == a){
                 delete g;
             }
         }
